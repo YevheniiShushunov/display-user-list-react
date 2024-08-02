@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ManageUser from "../manage-user/ManageUser";
 import { ReactComponent as Close } from "../../assets/icons/close.svg";
 
@@ -9,12 +9,6 @@ function Home({data, contacts, deleteContact, getData}) {
     const navigateToCard = (id, firstName, lastName, email, avatar) => {
         navigate(`user/${id}?firstname=${firstName}&lastname=${lastName}&email=${email}&avatar=${avatar}`);
     }
-
-    useEffect(() => {
-        if (contacts && contacts.length) {
-            console.log(contacts)
-        }
-    }, []);
 
     if (!contacts || contacts.length === 0) {
         return <div>error</div>
@@ -32,7 +26,7 @@ function Home({data, contacts, deleteContact, getData}) {
                         {contacts.map((contact, index) => (
                             <div
                                 key={contact.id}
-                                className="bg-base-bg h-[158px] w-full pt-[16px] relative mt-[16px]">
+                                className="bg-base-bg min-h-[158px] w-full pt-[16px] relative mt-[16px]">
                                 <button className="absolute top-[10px] right-[10px]" onClick={() => deleteContact(contact.id)}>
                                     <Close/>
                                 </button>

@@ -61,7 +61,7 @@ function ManageUser({getData}) {
             },
             owner_id: null,
         }
-        console.log(data);
+
         try {
             await createContact(data).unwrap();
             getData();
@@ -109,7 +109,8 @@ function ManageUser({getData}) {
                 items-center
                 w-[280px]
                 mt-[20px]
-                py-[10px]"
+                py-[10px]
+                hover:bg-base-bg"
                 type="submit">Add contact
             </button>
         </form>

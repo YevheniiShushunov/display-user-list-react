@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as UserAvatarBig } from "../../assets/icons/userbig.svg";
 
 function User({
                   firstName = "firstName",
@@ -53,7 +52,7 @@ function User({
                 Add tag
             </button>
             <button
-                className="max-w-[200px] border border-bgray rounded flex items-center justify-center w-full py-[10px] mt-[15px]"
+                className="max-w-[200px] border border-bgray rounded flex items-center justify-center w-full py-[10px] mt-[15px] hover:bg-base-bg"
                 onClick={(e) => navigateToList(e)} type="button">Back
             </button>
         </form>

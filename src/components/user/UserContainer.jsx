@@ -1,11 +1,12 @@
 import React from 'react';
 import User from './User';
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { useUpdateContactTagMutation } from "../../api/users-api";
 
 function UserContainer() {
     const {id} = useParams();
     const [updateTag, isLoading] = useUpdateContactTagMutation();
+    const navigate = useNavigate();
 
     //The user's request by its ID for the user doesn't work, so I made a transfer through the parameters
     function useQuery() {
@@ -21,9 +22,10 @@ function UserContainer() {
     const addTag = async (e, data) => {
         e.preventDefault();
         const tags = data.split(',');
-        console.log(id, tags)
+
         try {
-            await updateTag({id, tags}).unwrap()
+            await updateTag({id, tags}).unwrap();
+            navigate(`/`);
         } catch (e) {
             console.error(e);
         }

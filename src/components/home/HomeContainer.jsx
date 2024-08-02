@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet } from "react-router-dom";
+import React from 'react';
 import Home from './Home';
 import { useGetContactsQuery, useDeleteContactMutation } from "../../api/users-api";
-import { generateStatus } from "../../functions/generate-statues";
 
 function HomeContainer() {
     const {data: contacts, error, isLoading, refetch} = useGetContactsQuery();
